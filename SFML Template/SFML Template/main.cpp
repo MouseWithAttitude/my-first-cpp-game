@@ -1,11 +1,14 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <sstream>
+#include <cstdlib> 
+#include <fstream>
+#include <cctype>
 #include "Player.h"
 #include "Coin.h"
 #include "Enemy.h"
 #include "Gun.h"
-#include <sstream>
-#include <cstdlib> 
+
 
 using namespace sf;
 
@@ -19,27 +22,57 @@ int main() {
 
 	window.setKeyRepeatEnabled(true);
 	
+	//Variables
+	enum enumDirection{left,up,right,down};
+	int direction = left;
+
+	//Score Objects:
+
+	int score = 0;
+
+	sf::Font arial;
+	arial.loadFromFile("arial.ttf");
+
+	std::ostringstream ssScore;
+	ssScore << "Score: " << score;
+
+	sf::Text lblScore;
+	lblScore.setCharacterSize(30);
+	lblScore.setPosition({ 10, 10 });
+	lblScore.setFont(arial);
+	lblScore.setString(ssScore.str());
 
 	//Player Object:
 
 	float playerSize = 40;
 	Player player({ playerSize,playerSize });
 	player.setPos({ 50, 700 });
+	Gun gun({ playerSize / 75,playerSize / 90 });
+	//gun.setPos({ , });
 
-	//Coin Objects:
+
+	//coin Objects:
+	Coin coinTemp({ 20, 20 });
 	std::vector<Coin*> coinVec;
-	Coin coin1({ 20, 20 });
-	Coin coin2({ 20, 20 });
-	coinVec.push_back(&coin1);
-	coinVec.push_back(&coin2);
+	std::vector<Coin> coins;
+	std::vector<bool> coinVisable;
 
-	coin1.setPos({ 50, 600 });
-	coin2.setPos({ 100, 600 });
+	for (int i = 0; i < 5; ++i) {
+		coins.push_back(coinTemp);
+	}
+
+	for (int i = 0; i < coins.size(); i++) {
+		coinVec.push_back(&coins[i]);
+		coinVisable.push_back(true);
+		coinVec[i]->setPos({ (float)(100 * i), 50 });
+	}
+
 
 	//Enemy Objects:
 	Enemy enemyTemp({ 30, 30 });
 	std::vector<Enemy*> enemyVec;
 	std::vector<Enemy> enemys;
+	std::vector<bool> enemyVisable;
 
 	for (int i = 0; i < 5; ++i) {
 		enemys.push_back(enemyTemp);
@@ -47,6 +80,7 @@ int main() {
 	
 	for (int i = 0; i < enemys.size(); i++) {
 		enemyVec.push_back(&enemys[i]);
+		enemyVisable.push_back(true);
 		enemyVec[i]->setPos({ (float)(100*i), 50 });
 	}
 
@@ -64,15 +98,19 @@ int main() {
 		//player movement
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 			player.move({ 0, -moveSpeed });
+			direction = up;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 			player.move({ 0, moveSpeed });
+			direction = down;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
 			player.move({ moveSpeed, 0 });
+			direction = right;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 			player.move({ -moveSpeed, 0 });
+			direction = left;
 		}
 		
 		
@@ -94,8 +132,6 @@ int main() {
 		for (int i = 0; i < enemyVec.size(); i++) {
 			if (player.isCollidingWithEnemy(enemyVec[i])) {
 				enemyVec[i]->setPos({ (float)(rand() % 1000) , (float)(rand() % 1000) });
-				playerSize -= 5;
-				player.setS({ playerSize,playerSize });
 			}
 		}
 		for (int i = 0; i < enemyVec.size(); i++) {
@@ -118,20 +154,25 @@ int main() {
 		for (int i = 0; i < coinVec.size(); i++) {
 			if (player.isCollidingWithCoin(coinVec[i])) {
 				coinVec[i]->setPos({ (float)(rand() % 1000), (float)(rand() % 1000) });
-				playerSize += 10;
-				player.setS({ playerSize,playerSize });
+				//coinVisable[i] = false;
+				score++;
+				ssScore.str("");
+				ssScore << "Score " << score;
+				lblScore.setString(ssScore.str());
 			}
 		}
 
 
 		//draw
 		window.clear();
-		coin1.drawTo(window);
-		coin2.drawTo(window);
+		for (int i = 0; i < coinVec.size(); ++i) {
+			coins[i].drawTo(window, coinVisable[i]);
+		}
 		for (int i = 0; i < enemyVec.size(); ++i) {
-			enemys[i].drawTo(window);
+			enemys[i].drawTo(window, enemyVisable[i]);
 		}
 		player.drawTo(window);
+		window.draw(lblScore);
 		window.display();
 	}
 }

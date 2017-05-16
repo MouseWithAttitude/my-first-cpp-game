@@ -9,8 +9,9 @@ public:
 		coin.setFillColor(sf::Color::Yellow);
 	}
 
-	void drawTo(sf::RenderWindow &window) {
-		window.draw(coin);
+	void drawTo(sf::RenderWindow &window, bool isVisable) {
+		if(isVisable)
+			window.draw(coin);
 	}
 
 	sf::FloatRect getGlobalBounds() {

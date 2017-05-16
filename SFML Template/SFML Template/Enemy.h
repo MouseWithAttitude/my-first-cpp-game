@@ -9,8 +9,9 @@ public:
 		enemy.setFillColor(sf::Color::Red);
 	}
 
-	void drawTo(sf::RenderWindow &window) {
-		window.draw(enemy);
+	void drawTo(sf::RenderWindow &window, bool isVisable) {
+		if(isVisable)
+			window.draw(enemy);
 	}
 	void move(sf::Vector2f distance) {
 		enemy.move(distance);

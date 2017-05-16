@@ -1,17 +1,19 @@
 ﻿  main.cpp
-c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\enemy.h(27): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
-c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\enemy.h(30): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\enemy.h(28): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\enemy.h(31): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
 c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\player.h(32): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
 c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\player.h(35): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
 c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\gun.h(27): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
 c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\gun.h(30): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
-c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(48): warning C4018: '<': signed/unsigned mismatch
-c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(61): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(62): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(80): warning C4018: '<': signed/unsigned mismatch
-c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(94): warning C4018: '<': signed/unsigned mismatch
-c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(101): warning C4018: '<': signed/unsigned mismatch
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(64): warning C4018: '<': signed/unsigned mismatch
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(81): warning C4018: '<': signed/unsigned mismatch
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(95): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(96): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(118): warning C4018: '<': signed/unsigned mismatch
-c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(131): warning C4018: '<': signed/unsigned mismatch
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(132): warning C4018: '<': signed/unsigned mismatch
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(137): warning C4018: '<': signed/unsigned mismatch
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(154): warning C4018: '<': signed/unsigned mismatch
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(168): warning C4018: '<': signed/unsigned mismatch
+c:\sfml-box2d-tutorials-master\templates\visual studio (windows)\sfml template\sfml template\main.cpp(171): warning C4018: '<': signed/unsigned mismatch
   SFML Template.vcxproj -> C:\SFML-Box2D-Tutorials-master\Templates\Visual Studio (Windows)\SFML Template\Debug\SFML Template.exe
   SFML Template.vcxproj -> C:\SFML-Box2D-Tutorials-master\Templates\Visual Studio (Windows)\SFML Template\Debug\SFML Template.pdb (Partial PDB)
