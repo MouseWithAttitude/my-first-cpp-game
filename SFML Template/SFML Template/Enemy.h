@@ -30,7 +30,7 @@ public:
 	int getX() {
 		return enemy.getPosition().x;
 	}
-	bool isCollidingWithCoin(Enemy *enemy2) {
+	bool isCollidingWithEnemy(Enemy *enemy2) {
 		if (enemy.getGlobalBounds().intersects(enemy2->getGlobalBounds())) {
 			return true;
 		}

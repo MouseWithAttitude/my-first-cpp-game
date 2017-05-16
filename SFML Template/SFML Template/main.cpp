@@ -10,7 +10,7 @@
 #include "Gun.h"
 
 
-using namespace sf;
+//using namespace sf;
 
 int main() {
 	sf::RenderWindow window;
@@ -27,7 +27,6 @@ int main() {
 	int direction = left;
 
 	//Score Objects:
-
 	int score = 0;
 
 	sf::Font arial;
@@ -117,17 +116,51 @@ int main() {
 		//enemy logic
 		for (int i = 0; i < enemyVec.size(); ++i) {
 			if (player.getX() > enemys[i].getX()) {
-				enemys[i].move({ enemyMoveSpeed, 0 });
+				for (int j = 0; j < enemyVec.size(); j++) {
+					if (!(enemys[i].isCollidingWithEnemy(enemyVec[j])) && i != j) {
+						
+					}
+					else
+						enemys[i].move({ enemyMoveSpeed, 0 });
+					
+				}
+				
+				
 			}
 			if (player.getX() < enemys[i].getX()) {
-				enemys[i].move({ -enemyMoveSpeed, 0 });
+				for (int j = 0; j < enemyVec.size(); j++) {
+					if (!(enemys[i].isCollidingWithEnemy(enemyVec[j])) && i != j) {
+						break;
+					}
+					else
+						enemys[i].move({ -enemyMoveSpeed, 0 });
+					
+				}
+				
 			}
 			if (player.getY() > enemys[i].getY()) {
-				enemys[i].move({ 0,enemyMoveSpeed });
+				for (int j = 0; j < enemyVec.size(); j++) {
+					if (!(enemys[i].isCollidingWithEnemy(enemyVec[j])) && i != j) {
+						break;
+					}
+					else
+						enemys[i].move({ 0,enemyMoveSpeed });
+					
+				}
+				
 			}
 			if (player.getY() < enemys[i].getY()) {
-				enemys[i].move({ 0,-enemyMoveSpeed});
+				for (int j = 0; j < enemyVec.size(); j++) {
+					if (!(enemys[i].isCollidingWithEnemy(enemyVec[j])) && i != j) {
+						break;
+					}
+					else
+						enemys[i].move({ 0,-enemyMoveSpeed });
+					
+				}
+				
 			}
+			
 		}
 		for (int i = 0; i < enemyVec.size(); i++) {
 			if (player.isCollidingWithEnemy(enemyVec[i])) {
